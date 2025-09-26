@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Caseros - Catálogo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .header-right {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-right input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+
+    .cart:hover {
+      stroke: #ffcc00;
+    }
+
+    .filter-bar {
+      margin-top: 8px;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-end; 
+    }
+
+    .filter-bar select {
+      padding: 6px 12px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Grid */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .producto {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: #444;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Paginación */
+    .paginacion {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .paginacion a {
+      text-decoration: none;
+      color: #1a73e8;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+
+    .paginacion a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Sabores Caseros</h1>
+    <div class="header-right">
+      <!-- Carrito -->
+      <svg class="cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1.5"/>
+        <circle cx="19" cy="21" r="1.5"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </header>
+
+  <!-- Barra de filtros fuera del header -->
+  <div class="filter-bar">
+    <select>
+      <option value="todas">Todas las categorías</option>
+      <option value="ensalada">Ensalada</option>
+      <option value="carnes">Carnes</option>
+      <option value="bebidas">Bebidas</option>
+    </select>
+  </div>
+
+  <!-- Contenido principal -->
+  <main>
+    <h2>Catálogo de productos</h2>
+    <div class="catalogo">
+      <div class="producto">Ensalada al horno</div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+      <div class="producto"></div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="paginacion">
+      <a href="#">&larr;</a>
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <span>...</span>
+      <a href="#">&rarr;</a>
+    </div>
+  </main>
+
+</body>
+</html>

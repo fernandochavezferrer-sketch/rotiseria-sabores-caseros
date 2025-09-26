@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle de Producto - Sabores Caseros</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fff;
+      color: #222;
+    }
+
+    header {
+      background-color: #1e73e4;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .header-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+  .cart {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+
+    .cart:hover {
+      stroke: #ffcc00;
+    }
+
+
+    input[type="text"] {
+      padding: 0.4rem;
+      border: none;
+      border-radius: 4px;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .product-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 350px;
+      position: relative;
+      border: 1px solid #ddd;
+      padding: 1rem;
+    }
+
+    .product-container h2 {
+      margin-bottom: 1rem;
+    }
+
+    .image-box {
+      width: 250px;
+      height: 250px;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .arrow.left {
+      left: -2rem;
+    }
+
+    .arrow.right {
+      right: -2rem;
+    }
+
+    .rating {
+      display: flex;
+      justify-content: center;
+      gap: 0.2rem;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .details-container {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background-color: #1e73e4;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .arrow.left, .arrow.right {
+        display: none;
+      }
+
+      
+   
+
+      .header-title {
+        position: static;
+        transform: none;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">Sabores Caseros</div>
+   <svg class="cart" onclick="toggleCart()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+      <circle cx="9" cy="21" r="1.5"/>
+      <circle cx="19" cy="21" r="1.5"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    </svg>
+      <input type="text" placeholder="Buscar..." />
+    </div>
+  </header>
+
+  <main>
+
+    <div class="product-container">
+      <span class="arrow left">←</span>
+      <h2>Ensalada al horno</h2>
+      <div class="image-box">
+        <img src="https://i.imgur.com/llF5iyg.gif" alt="Cargando..." width="50" />
+      </div>
+      <span class="arrow right">→</span>
+      <div class="rating">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+      </div>
+    </div>
+
+    <div class="details-container">
+      <div class="price">Precio $14500</div>
+      <button class="btn">Añadir a Carrito</button>
+      <div class="description">
+        Ensalada preparada al horno muy saludable y nutritiva. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum...
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

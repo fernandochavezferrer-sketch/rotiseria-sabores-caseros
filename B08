@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Caseros - Carrito</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .header-right {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-right input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+
+    .cart:hover {
+      stroke: #ffcc00;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .carrito {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .carrito table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .carrito table th,
+    .carrito table td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .carrito table td:last-child {
+      text-align: right;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px 0;
+      text-align: right;
+      color: #333;
+    }
+
+    .btn-pago {
+      display: inline-block;
+      background: #1a73e8;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-pago:hover {
+      background: #1558b0;
+    }
+
+    @media (max-width: 480px) {
+      .carrito table th, 
+      .carrito table td {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .total {
+        font-size: 18px;
+      }
+
+      .btn-pago {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sabores Caseros</h1>
+    <div class="header-right">
+      <svg class="cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1.5"/>
+        <circle cx="19" cy="21" r="1.5"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </header>
+
+  <main>
+    <div class="carrito">
+      <h2>Carrito</h2>
+      <table>
+        <tr>
+          <td>Ensalada al horno</td>
+          <td>14500$</td>
+        </tr>
+        <tr>
+          <td>Pollo al horno</td>
+          <td>15000$</td>
+        </tr>
+      </table>
+      <div class="total">TOTAL 29500$</div>
+      <button class="btn-pago">Proceder a pago</button>
+    </div>
+  </main>
+
+</body>
+</html>

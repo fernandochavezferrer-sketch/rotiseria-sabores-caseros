@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sabores Caseros - Detalle Producto</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    header h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .header-right {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-right input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      outline: none;
+      width: 160px;
+      transition: border-color 0.3s;
+    }
+
+    .header-right input[type="text"]:focus {
+      border-color: #ffcc00;
+    }
+
+    .cart {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.2s;
+    }
+
+    .cart:hover {
+      stroke: #ffcc00;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      display: flex;
+      gap: 30px;
+      padding: 0 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
+    }
+
+    /* Imagen producto */
+    .product-container {
+      flex: 1 1 300px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .product-container h2 {
+      margin: 10px 0;
+    }
+
+    .image-box {
+      width: 100%;
+      height: 250px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ddd;
+      position: relative;
+    }
+
+    /* Flechas */
+    .arrow {
+      font-weight: bold;
+      font-size: 1.6rem;
+      user-select: none;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #555;
+    }
+    .left {
+      left: -30px;
+    }
+    .right {
+      right: -30px;
+    }
+
+    /* Rating */
+    .rating {
+      margin-top: 10px;
+      font-size: 1.4rem;
+      color: #555;
+      user-select: none;
+    }
+    .rating span:nth-child(-n+4) {
+      color: #b7a83a; 
+    }
+    .rating span:nth-child(5) {
+      color: #444;
+    }
+
+    .details-container {
+      flex: 1 1 300px;
+      max-width: 450px;
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 0 6px #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 15px;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .btn {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      max-width: 200px;
+      transition: background-color 0.3s;
+      align-self: flex-start;
+    }
+    .btn:hover {
+      background-color: #155bb5;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #444;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      box-shadow: 0 0 10px #ccc;
+      width: 280px;
+      border-radius: 6px;
+      display: none;
+      flex-direction: column;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    .dropdown .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown .item:last-child {
+      border-bottom: none;
+    }
+
+    .item-name {
+      font-weight: bold;
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-qty {
+      width: 25px;
+      height: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f0f0f0;
+      transition: background-color 0.2s;
+    }
+    .btn-qty:hover {
+      background: #ddd;
+    }
+
+    .item-qty {
+      min-width: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .btn-remove {
+      margin-left: 10px;
+      background: none;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      color: #900;
+      font-size: 1.1rem;
+      padding: 0 5px;
+      line-height: 1;
+      user-select: none;
+    }
+    .btn-remove:hover {
+      color: #f00;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      justify-content: center;
+      align-items: center;
+      z-index: 1500;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 300px;
+      font-size: 1rem;
+      box-shadow: 0 0 12px #ccc;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .modal-content button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-weight: bold;
+      border: none;
+      background-color: #1a73e8;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .modal-content button:hover {
+      background-color: #155bb5;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-container,
+      .details-container {
+        max-width: 100%;
+        flex: none;
+      }
+      .arrow.left {
+        left: 5px;
+      }
+      .arrow.right {
+        right: 5px;
+      }
+
+      .header-right input[type="text"] {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sabores Caseros</h1>
+  <div class="header-right">
+    <svg class="cart" onclick="toggleCart()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+      <circle cx="9" cy="21" r="1.5"/>
+      <circle cx="19" cy="21" r="1.5"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    </svg>
+    <input type="text" placeholder="Buscar...">
+  </div>
+</header>
+
+<main>
+  <div class="product-container">
+    <span class="arrow left" title="Anterior">←</span>
+    <h2>Ensalada al horno</h2>
+    <div class="image-box">
+      <img src="https://i.imgur.com/llF5iyg.gif" alt="Cargando..." width="80" />
+    </div>
+    <span class="arrow right" title="Siguiente">→</span>
+    <div class="rating">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+    </div>
+  </div>
+
+  <div class="details-container">
+    <div class="price">Precio $14500</div>
+    <button class="btn" id="addToCartBtn">Añadir a Carrito</button>
+    <div class="description">
+      Ensalada preparada al horno muy saludable y nutritiva. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+  </div>
+</main>
+
+<div id="cartDropdown" class="dropdown"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Mensaje</h3>
+    <p>El carrito está vacío, por favor agregue artículos</p>
+    <button onclick="hideModal()">OK</button>
+  </div>
+</div>
+
+<script>
+  const cartDropdown = document.getElementById('cartDropdown');
+  const modal = document.getElementById('modal');
+
+  let cart = {};
+
+  function toggleCart() {
+    if (Object.keys(cart).length === 0) {
+      showEmptyCartModal();
+      cartDropdown.style.display = 'none';
+      return;
+    }
+    cartDropdown.style.display = cartDropdown.style.display === 'flex' ? 'none' : 'flex';
+    renderCart();
+  }
+
+  function renderCart() {
+    cartDropdown.innerHTML = '';
+    for (const [name, qty] of Object.entries(cart)) {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'item';
+
+      const itemName = document.createElement('span');
+      itemName.className = 'item-name';
+      itemName.textContent = name;
+
+      const qtyControls = document.createElement('div');
+      qtyControls.className = 'qty-controls';
+
+      const btnMinus = document.createElement('button');
+      btnMinus.className = 'btn-qty';
+      btnMinus.textContent = '-';
+      btnMinus.onclick = () => changeQty(name, -1);
+
+      const qtySpan = document.createElement('span');
+      qtySpan.className = 'item-qty';
+      qtySpan.textContent = qty;
+
+      const btnPlus = document.createElement('button');
+      btnPlus.className = 'btn-qty';
+      btnPlus.textContent = '+';
+      btnPlus.onclick = () => changeQty(name, 1);
+
+      qtyControls.appendChild(btnMinus);
+      qtyControls.appendChild(qtySpan);
+      qtyControls.appendChild(btnPlus);
+
+      const btnRemove = document.createElement('button');
+      btnRemove.className = 'btn-remove';
+      btnRemove.textContent = 'x';
+      btnRemove.onclick = () => removeItem(name);
+
+      itemDiv.appendChild(itemName);
+      itemDiv.appendChild(qtyControls);
+      itemDiv.appendChild(btnRemove);
+
+      cartDropdown.appendChild(itemDiv);
+    }
+  }
+
+  function changeQty(name, delta) {
+    if (!cart[name]) return;
+    cart[name] += delta;
+    if (cart[name] < 1) cart[name] = 1;
+    renderCart();
+  }
+
+  function removeItem(name) {
+    delete cart[name];
+    if (Object.keys(cart).length === 0) {
+      cartDropdown.style.display = 'none';
+      showEmptyCartModal();
+    }
+    renderCart();
+  }
+
+  function showEmptyCartModal() {
+    modal.style.display = 'flex';
+  }
+
+  function hideModal() {
+    modal.style.display = 'none';
+  }
+
+  document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const productName = 'Ensalada al horno';
+    if (cart[productName]) {
+      cart[productName]++;
+    } else {
+      cart[productName] = 1;
+    }
+    renderCart();
+    cartDropdown.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>

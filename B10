@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Caseros - Pago</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .header-right {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-right input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .pago {
+      width: 100%;
+      max-width: 700px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .pago h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .metodo-label {
+      display: inline-block;
+      background: #1a73e8;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .opciones {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .opcion {
+      width: 180px;
+      height: 160px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: #fafafa;
+      padding: 10px;
+    }
+
+    .opcion:hover {
+      border-color: #1a73e8;
+      background: #eef4ff;
+    }
+
+    .opcion img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      object-fit: contain;
+    }
+
+    .opcion span {
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sabores Caseros</h1>
+    <div class="header-right">
+      <svg class="cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1.5"/>
+        <circle cx="19" cy="21" r="1.5"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </header>
+
+  <main>
+    <div class="pago">
+      <h2>Pago</h2>
+      <div class="total">TOTAL: 29.500$</div>
+      <div class="metodo-label">Seleccione método de pago</div>
+      <div class="opciones">
+        <div class="opcion">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
+          <span>Visa</span>
+        </div>
+        <div class="opcion">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+          <span>MasterCard</span>
+        </div>
+        <div class="opcion">
+          <span>Redcompra</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

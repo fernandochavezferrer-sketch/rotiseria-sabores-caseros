@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Caseros - Pago exitoso</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .header-right {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-right input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .resultado {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .resultado h2 {
+      color: #1a73e8;
+      margin-bottom: 15px;
+    }
+
+    .resultado p {
+      margin: 10px 0 20px;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #1a73e8;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #1558b0;
+    }
+
+    .logo {
+      margin-top: 30px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sabores Caseros</h1>
+    <div class="header-right">
+      <svg class="cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="9" cy="21" r="1.5"/>
+        <circle cx="19" cy="21" r="1.5"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </header>
+
+  <main>
+    <div class="resultado">
+      <h2>¡Pago exitoso!</h2>
+      <p>Se le enviará un comprobante a su correo o puede descargarlo aquí:</p>
+      <a href="#" class="btn">Descargar comprobante</a>
+    </div>
+
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/RedCompra_logo.svg/2560px-RedCompra_logo.svg.png" alt="Logo Redcompra">
+    </div>
+  </main>
+
+</body>
+</html>

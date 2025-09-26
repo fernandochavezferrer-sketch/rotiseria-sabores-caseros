@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabores Caseros - Perfil</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: flex-start;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      background: #e0e0e0;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      color: #555;
+    }
+
+    .profile-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .profile-info h2 {
+      font-size: 18px;
+      color: #333;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #155fc0;
+    }
+
+    .modal {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 6px;
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      display: none; 
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px auto;
+    }
+
+    .modal h3 {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .modal p {
+      font-size: 14px;
+      color: #555;
+    }
+
+
+    @media (max-width: 480px) {
+      .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-info {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    Sabores Caseros
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div class="avatar">👤</div>
+      <div class="profile-info">
+        <h2>Fulanito Hernandez</h2>
+
+        <div>
+          <label for="direccion">Dirección*</label>
+          <input type="text" id="direccion" placeholder="Calle 123">
+        </div>
+
+        <div>
+          <label for="telefono">Número Celular*</label>
+          <input type="text" id="telefono" placeholder="+5694xxxxxxx">
+        </div>
+
+        <button>Actualizar Datos</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
